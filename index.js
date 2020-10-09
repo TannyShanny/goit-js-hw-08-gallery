@@ -36,7 +36,6 @@ const openModal = ({ target }) => {
     lightboxImg.src = target.dataset.source;
     lightboxImg.alt = target.alt;
     lightbox.classList.add("is-open");
-    lightboxOverlay.classList.add("is-open");
   }
 };
 
@@ -46,6 +45,12 @@ const closeModal = () => {
   lightboxOverlay.classList.remove("is-open");
 };
 
+function clickOverlay(event) {
+  if (event.target === event.currentTarget) {
+    closeModal();
+  }
+}
+
 gallery.addEventListener("click", openModal);
 closeButton.addEventListener("click", closeModal);
-lightboxContent.addEventListener("click", closeModal);
+lightboxOverlay.addEventListener("click", clickOverlay);
