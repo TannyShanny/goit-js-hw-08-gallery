@@ -42,7 +42,6 @@ const openModal = ({ target }) => {
 const closeModal = () => {
   lightboxImg.src = "";
   lightbox.classList.remove("is-open");
-  lightboxOverlay.classList.remove("is-open");
 };
 
 function clickOverlay(event) {
